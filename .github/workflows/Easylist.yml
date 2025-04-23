@@ -32,7 +32,6 @@ jobs:
       - name: Fetch AdGuard DNS Filter Lists
         run: |
           wget -O tmp/convert/EasyListAds.txt https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssets@gh-pages/thirdparties/easylist.txt
-          wget -O tmp/convert/EasyListAnticv.txt https://easylist-downloads.adblockplus.org/abp-filters-anti-cv.txt
 
       - name: Convert with sing-box
         run: |
