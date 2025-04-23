@@ -46,10 +46,10 @@ jobs:
             ./sing-box rule-set convert "$file" --output "${file%.txt}.srs" --type adguard
           done
           cd ../..
-          mkdir -p output/sing-box/
-          rm -rf output/sing-box/* || true
-          cp tmp/convert/*.srs output/sing-box/
-          rm -r tmp && ls -l output/sing-box
+          mkdir -p srs/
+          rm -rf srs/* || true
+          cp tmp/convert/*.srs srs/
+          rm -r tmp && ls -l srs/
 
       - name: Check and Commit
         run: |
