@@ -6,7 +6,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: "0 8 * * 0"
+    - cron: "0 3 * * *"
 
 jobs:
   main:
@@ -18,68 +18,38 @@ jobs:
           persist-credentials: false
           fetch-depth: 0
 
-      - name: Set up sing-box
+      - name: Download and Set Up sing-box
         run: |
+          mkdir -p /tmp/convert
+          cd /tmp/convert
           singbox_url=`curl -s https://api.github.com/repos/SagerNet/sing-box/releases/latest | grep browser_download_url | grep linux-amd64 | cut -d'"' -f4`
           wget -N ${singbox_url} -O sing-box.tar.gz
           tar -zxvf sing-box.tar.gz --exclude=LICENSE --strip-components 1 && rm -rf sing-box.tar.gz
 
-      - name: Fetch AdGuardDNS Rules
+      - name: Fetch AdGuard DNS Filter Lists
         run: |
-          AdGuardDNS_url="https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt"
-          wget -N ${AdGuardDNS_url} -O AdGuardDNS.txt
-
-      - name: Fetch AdGuardMobile Rules
-        run: |
-          AdGuardMobile_url="https://cdn.jsdelivr.net/gh/AdguardTeam/AdguardFilters@master/MobileFilter/sections/specific_app.txt"
-          wget -N ${AdGuardMobile_url} -O AdGuardMobile.txt
-
-      - name: Fetch uBlockAds Rules
-        run: |
-          uBlockAds_url="https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssets@gh-pages/filters/filters.min.txt"
-          wget -N ${uBlockAds_url} -O uBlockAds.txt
-
-      - name: Fetch uBlockPrivacy Rules
-        run: |
-          uBlockPrivacy_url="https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssets@gh-pages/filters/privacy.min.txt"
-          wget -N ${uBlockPrivacy_url} -O uBlockPrivacy.txt
-
-      - name: Fetch uBlockBadwarerisks Rules
-        run: |
-          uBlockBadwarerisks_url="https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssets@gh-pages/filters/badware.txt"
-          wget -N ${uBlockBadwarerisks_url} -O uBlockBadwarerisks.txt
-
-      - name: Fetch uBlockQuickfixes Rules
-        run: |
-          uBlockQuickfixes_url="https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssets@gh-pages/filters/quick-fixes.txt"
-          wget -N ${uBlockQuickfixes_url} -O uBlockQuickfixes.txt
-
-      - name: Fetch uBlockUnbreak Rules
-        run: |
-          uBlockUnbreak_url="https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssets@gh-pages/filters/unbreak.txt"
-          wget -N ${uBlockUnbreak_url} -O uBlockUnbreak.txt
-
-      - name: Fetch EasyListAds Rules
-        run: |
-          EasyListAds_url="https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssets@gh-pages/thirdparties/easylist.txt"
-          wget -N ${EasyListAds_url} -O EasyListAds.txt
-
-      - name: Fetch EasyPrivacy Rules
-        run: |
-          EasyPrivacy_url="https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssets@gh-pages/thirdparties/easyprivacy.txt"
-          wget -N ${EasyPrivacy_url} -O EasyPrivacy.txt
-
-      - name: Fetch NoCoin Rules
-        run: |
-          NoCoin_url="https://cdn.jsdelivr.net/gh/hoshsadiq/adblock-nocoin-list@master/hosts.txt"
-          wget -N ${NoCoin_url} -O NoCoin.txt
+          wget -O tmp/convert/AdGuardDNS.txt https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt
+          wget -O tmp/convert/AdGuardMobile.txt https://cdn.jsdelivr.net/gh/AdguardTeam/AdguardFilters@master/MobileFilter/sections/specific_app.txt
+          wget -O tmp/convert/uBlockAds.txt https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssets@gh-pages/filters/filters.min.txt
+          wget -O tmp/convert/uBlockPrivacy.txt https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssets@gh-pages/filters/privacy.min.txt
+          wget -O tmp/convert/uBlockBadwarerisks.txt https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssets@gh-pages/filters/badware.txt
+          wget -O tmp/convert/uBlockQuickfixes.txt https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssets@gh-pages/filters/quick-fixes.txt
+          wget -O tmp/convert/uBlockUnbreak.txt https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssets@gh-pages/filters/unbreak.txt
+          wget -O tmp/convert/EasyListAds.txt https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssets@gh-pages/thirdparties/easylist.txt
+          wget -O tmp/convert/EasyPrivacy.txt https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssets@gh-pages/thirdparties/easyprivacy.txt
+          wget -O tmp/convert/NoCoin.txt https://cdn.jsdelivr.net/gh/hoshsadiq/adblock-nocoin-list@master/hosts.txt
 
       - name: Convert with sing-box
         run: |
+          cd tmp/convert
           for file in *.txt; do
             ./sing-box rule-set convert "$file" --output "${file%.txt}.srs" --type adguard
           done
-          rm sing-box && ls -l *
+          cd ../..
+          mkdir -p /srs/
+          rm -rf /srs/* || true
+          cp tmp/convert/*.srs /srs/
+          rm -r tmp && ls -l /srs
 
       - name: Check and Commit
         run: |
