@@ -21,7 +21,6 @@ jobs:
       - name: Download and Set Up sing-box
         run: |
           mkdir -p /tmp/convert
-          mkdir -p tmp/convert
           wget -O sing-box.tar.gz https://github.com/SagerNet/sing-box/releases/download/v1.11.5/sing-box-1.11.5-linux-amd64.tar.gz
           tar zxvf sing-box.tar.gz && rm sing-box.tar.gz
           cp sing-box-1.11.5-linux-amd64/sing-box tmp/convert/
