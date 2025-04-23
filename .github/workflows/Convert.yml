@@ -8,9 +8,6 @@ on:
   schedule:
     - cron: "0 3 * * *"
 
-permissions:
-  deployments: write
-
 jobs:
   main:
     runs-on: ubuntu-latest
