@@ -1,4 +1,4 @@
-name: Convert
+name: Adguard
 
 on:
   workflow_dispatch:
@@ -55,7 +55,7 @@ jobs:
             echo "changes=false" >> $GITHUB_ENV
           else
             echo "changes=true" >> $GITHUB_ENV
-            git commit -m "actions: Update adguard type srs" -a
+            git commit -m "actions: Adguard" -a
           fi
 
       - name: Push
