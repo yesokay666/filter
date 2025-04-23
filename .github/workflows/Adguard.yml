@@ -42,7 +42,6 @@ jobs:
           done
           cd ../..
           mkdir -p srs/
-          rm -rf srs/* || true
           cp tmp/convert/*.srs srs/
           rm -r tmp && ls -l srs/
 
