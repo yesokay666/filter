@@ -1,4 +1,4 @@
-name: uBlockAds
+name: AdGuardAds
 
 on:
   workflow_dispatch:
@@ -29,9 +29,9 @@ jobs:
           wget -N ${singbox_url} -O sing-box.tar.gz
           tar -zxvf sing-box.tar.gz --exclude=LICENSE --strip-components 1 && rm -rf sing-box.tar.gz
 
-      - name: Fetch uBlock Filter Lists
+      - name: Fetch AdGuard Filter Lists
         run: |
-          wget -O tmp/convert/uBlockAds.txt https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssetsCDN@main/filters/filters.min.txt
+          wget -O tmp/convert/AdGuardAds.txt https://filters.adtidy.org/extension/ublock/filters/2_without_easylist.txt
 
       - name: Convert with sing-box
         run: |
@@ -53,7 +53,7 @@ jobs:
             echo "changes=false" >> $GITHUB_ENV
           else
             echo "changes=true" >> $GITHUB_ENV
-            git commit -m "actions: uBlockAds" -a
+            git commit -m "actions: AdGuardAds" -a
           fi
 
       - name: Push
