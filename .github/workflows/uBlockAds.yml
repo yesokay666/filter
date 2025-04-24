@@ -1,4 +1,4 @@
-name: uBlock
+name: uBlockAds
 
 on:
   workflow_dispatch:
@@ -6,7 +6,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: "0 1 * * *"
+    - cron: "0 0 * * *"
 
 permissions:
   contents: write
@@ -31,7 +31,7 @@ jobs:
 
       - name: Fetch uBlock Filter Lists
         run: |
-          wget -O tmp/convert/uBlockAds.txt https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssets@gh-pages/filters/filters.min.txt
+          wget -O tmp/convert/uBlockAds.txt https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssetsCDN@main/filters/filters.min.txt
 
       - name: Convert with sing-box
         run: |
@@ -53,7 +53,7 @@ jobs:
             echo "changes=false" >> $GITHUB_ENV
           else
             echo "changes=true" >> $GITHUB_ENV
-            git commit -m "actions: uBlock" -a
+            git commit -m "actions: uBlockAds" -a
           fi
 
       - name: Push
