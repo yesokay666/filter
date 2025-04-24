@@ -6,7 +6,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: "0 6 * * *"
+    - cron: "0 5 * * *"
 
 permissions:
   contents: write
@@ -31,7 +31,7 @@ jobs:
 
       - name: Fetch uBlock Filter Lists
         run: |
-          wget -O tmp/convert/EasyPrivacy.txt https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssets@gh-pages/thirdparties/easyprivacy.txt
+          wget -O tmp/convert/EasyPrivacy.txt https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssetsCDN@main/thirdparties/easyprivacy.txt
 
       - name: Convert with sing-box
         run: |
