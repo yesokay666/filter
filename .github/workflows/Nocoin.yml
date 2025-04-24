@@ -32,6 +32,7 @@ jobs:
       - name: Fetch AdGuard DNS Filter Lists
         run: |
           wget -O tmp/convert/NoCoin.txt https://cdn.jsdelivr.net/gh/hoshsadiq/adblock-nocoin-list@master/hosts.txt
+          wget -O tmp/convert/AdguardCryptominers.txt https://cdn.jsdelivr.net/gh/AdguardTeam/AdguardFilters@master/BaseFilter/sections/cryptominers.txt
 
       - name: Convert with sing-box
         run: |
