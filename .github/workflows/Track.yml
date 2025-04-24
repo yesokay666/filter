@@ -31,7 +31,7 @@ jobs:
 
       - name: Fetch Track Lists
         run: |
-          wget -O tmp/convert/Track.txt https://pgl.yoyo.org/as/serverlist.php?showintro=0;hostformat=hosts
+          wget -O tmp/convert/Track.txt https://pgl.yoyo.org/adservers/serverlist.php?hostformat=adblockplus
 
       - name: Convert with sing-box
         run: |
