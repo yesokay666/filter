@@ -6,7 +6,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: "0 4 * * *"
+    - cron: "0 3 * * *"
 
 permissions:
   contents: write
@@ -31,7 +31,7 @@ jobs:
 
       - name: Fetch uBlock Filter Lists
         run: |
-          wget -O tmp/convert/uBlockUnbreak.txt https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssets@gh-pages/filters/unbreak.txt
+          wget -O tmp/convert/uBlockUnbreak.txt https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssetsCDN@main/filters/unbreak.min.txt
 
       - name: Convert with sing-box
         run: |
