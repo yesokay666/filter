@@ -31,7 +31,7 @@ jobs:
 
       - name: Fetch Mobile Lists
         run: |
-          wget -O tmp/convert/Mobile.txt https://filters.adtidy.org/extension/ublock/filters/11.txt
+          wget -O tmp/convert/Mobile.txt https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/MobileFilter/sections/specific_app.txt
 
       - name: Convert with sing-box
         run: |
