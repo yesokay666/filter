@@ -32,7 +32,6 @@ jobs:
       - name: Fetch AdGuard DNS Filter Lists
         run: |
           wget -O tmp/convert/AdGuardDNS.txt https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt
-          wget -O tmp/convert/AdGuardPopup.txt https://cdn.jsdelivr.net/gh/AdguardTeam/AdGuardSDNSFilter@gh-pages/Filters/adguard_popup_filter.txt
 
       - name: Convert with sing-box
         run: |
