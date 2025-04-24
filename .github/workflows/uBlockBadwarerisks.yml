@@ -31,7 +31,7 @@ jobs:
 
       - name: Fetch uBlock Filter Lists
         run: |
-          wget -O tmp/convert/uBlockBadwarerisks.txt https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssetsCDN@main/filters/badware.min.txt
+          wget -O tmp/convert/uBlockBadwarerisks.txt https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssets@master/filters/badware.txt
 
       - name: Convert with sing-box
         run: |
