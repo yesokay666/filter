@@ -6,7 +6,7 @@ on:
     paths:
       - '.github/workflows/PhishingURL.yml'
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "0 11 * * *"
 
 permissions:
   contents: write
