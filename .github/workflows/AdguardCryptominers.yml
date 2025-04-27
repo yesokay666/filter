@@ -6,7 +6,7 @@ on:
     branches:
       - main
   paths:
-      - './AdguardCryptominers.yml'
+      - '.github/workflows/specific-workflow.yml'
   schedule:
     - cron: "0 12 * * *"
 
