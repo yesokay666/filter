@@ -5,7 +5,7 @@ on:
   push:
     branches:
       - main
-  paths:
+    paths:
       - '.github/workflows/EasyListAds.yml'
   schedule:
     - cron: "0 4 * * *"
