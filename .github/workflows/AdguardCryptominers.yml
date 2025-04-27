@@ -5,6 +5,8 @@ on:
   push:
     branches:
       - main
+  paths:
+      - '.github/workflows/AdguardCryptominers.yml'
   schedule:
     - cron: "0 12 * * *"
 
