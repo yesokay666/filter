@@ -6,7 +6,7 @@ on:
     paths:
       - '.github/workflows/AdguardAds.yml'
   schedule:
-    - cron: "0 12 * * *"
+    - cron: "0 0 * * *"
 
 permissions:
   contents: write
