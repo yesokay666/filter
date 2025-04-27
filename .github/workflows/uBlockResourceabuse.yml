@@ -3,8 +3,6 @@ name: uBlockResourceabuse
 on:
   workflow_dispatch:
   push:
-    branches:
-      - main
     paths:
       - '.github/workflows/uBlockResourceabuse.yml'
   schedule:
