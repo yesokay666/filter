@@ -5,6 +5,8 @@ on:
   push:
     branches:
       - main
+  paths:
+      - '.github/workflows/uBlockAds.yml'
   schedule:
     - cron: "0 0 * * *"
 
