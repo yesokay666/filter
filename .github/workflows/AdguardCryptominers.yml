@@ -8,7 +8,7 @@ on:
     paths:
       - '.github/workflows/AdguardCryptominers.yml'
   schedule:
-    - cron: "0 12 * * *"
+    - cron: "0 1 * * *"
 
 permissions:
   contents: write
