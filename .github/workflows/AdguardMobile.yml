@@ -33,7 +33,7 @@ jobs:
 
       - name: Fetch Adguard Lists
         run: |
-          wget -O tmp/convert/AdguardMobile.txt https://cdn.jsdelivr.net/gh/AdguardTeam/AdguardFilters@master/MobileFilter/sections/specific_app.txt
+          wget -O tmp/convert/AdguardMobile.txt https://filters.adtidy.org/extension/ublock/filters/11.txt
 
       - name: Convert with sing-box
         run: |
