@@ -3,8 +3,6 @@ name: AdguardCryptominers
 on:
   workflow_dispatch:
   push:
-    branches:
-      - main
     paths:
       - '.github/workflows/AdguardCryptominers.yml'
   schedule:
