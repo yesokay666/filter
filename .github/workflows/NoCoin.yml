@@ -8,7 +8,7 @@ on:
     paths:
       - '.github/workflows/NoCoin.yml'
   schedule:
-    - cron: "0 11 * * *"
+    - cron: "0 10 * * *"
 
 permissions:
   contents: write
