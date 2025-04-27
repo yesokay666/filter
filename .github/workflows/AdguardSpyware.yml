@@ -6,7 +6,7 @@ on:
     paths:
       - '.github/workflows/AdguardSpyware.yml'
   schedule:
-    - cron: "0 3 * * *"
+    - cron: "0 4 * * *"
 
 permissions:
   contents: write
