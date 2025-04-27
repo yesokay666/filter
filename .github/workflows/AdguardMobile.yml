@@ -5,7 +5,7 @@ on:
   push:
     branches:
       - main
-  paths:
+    paths:
       - '.github/workflows/AdguardMobile.yml'
   schedule:
     - cron: "0 9 * * *"
