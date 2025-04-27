@@ -3,8 +3,6 @@ name: EasyListAds
 on:
   workflow_dispatch:
   push:
-    branches:
-      - main
     paths:
       - '.github/workflows/EasyListAds.yml'
   schedule:
