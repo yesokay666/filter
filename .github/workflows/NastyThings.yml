@@ -8,7 +8,7 @@ on:
     paths:
       - '.github/workflows/NastyThings.yml'
   schedule:
-    - cron: "0 7 * * *"
+    - cron: "0 9 * * *"
 
 permissions:
   contents: write
