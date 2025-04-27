@@ -8,7 +8,7 @@ on:
     paths:
       - '.github/workflows/uBlockResourceabuse.yml'
   schedule:
-    - cron: "0 10 * * *"
+    - cron: "0 15 * * *"
 
 permissions:
   contents: write
