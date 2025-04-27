@@ -6,7 +6,7 @@ on:
     branches:
       - main
   paths:
-      - 'AdguardCryptominers.yml'
+      - '/AdguardCryptominers.yml'
   schedule:
     - cron: "0 12 * * *"
 
