@@ -1,10 +1,10 @@
-name: AdGuardSpyware
+name: AdGuardSpywareURL
 
 on:
   workflow_dispatch:
   push:
     paths:
-      - '.github/workflows/AdGuardSpyware.yml'
+      - '.github/workflows/AdGuardSpywareURL.yml'
   schedule:
     - cron: "0 0 * * *"
 
@@ -31,7 +31,7 @@ jobs:
 
       - name: Fetch Adguard Lists
         run: |
-          wget -O tmp/convert/AdGuardSpyware.txt https://filters.adtidy.org/extension/ublock/filters/17.txt
+          wget -O tmp/convert/AdGuardSpywareURL.txt https://filters.adtidy.org/extension/ublock/filters/17.txt
 
       - name: Convert with sing-box
         run: |
@@ -53,7 +53,7 @@ jobs:
             echo "changes=false" >> $GITHUB_ENV
           else
             echo "changes=true" >> $GITHUB_ENV
-            git commit -m "actions: AdGuardSpyware" -a
+            git commit -m "actions: AdGuardSpywareURL" -a
           fi
 
       - name: Push
