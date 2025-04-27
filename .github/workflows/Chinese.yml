@@ -5,7 +5,7 @@ on:
   push:
     branches:
       - main
-  paths:
+    paths:
       - '.github/workflows/Chinese.yml'
   schedule:
     - cron: "0 8 * * *"
