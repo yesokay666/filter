@@ -31,7 +31,7 @@ jobs:
 
       - name: Fetch NastyThings Lists
         run: |
-          wget -O tmp/convert/NastyThings.txt https://pgl.yoyo.org/adservers/serverlist.php?hostformat=adblockplus&showintro=1&mimetype=plaintext
+          wget -O tmp/convert/NastyThings.txt https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=1&mimetype=plaintext
 
       - name: Convert with sing-box
         run: |
