@@ -31,7 +31,7 @@ jobs:
 
       - name: Fetch uBlock Filter Lists
         run: |
-          wget -O tmp/convert/EasyPrivacy.txt https://easylist.to/easylist/easyprivacy.txt
+          wget -O tmp/convert/EasyPrivacy.txt https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssetsCDN@main/thirdparties/easyprivacy.txt
 
       - name: Convert with sing-box
         run: |
