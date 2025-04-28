@@ -31,7 +31,7 @@ jobs:
 
       - name: Fetch uBlock Filter Lists
         run: |
-          wget -O tmp/convert/uBlockAds.txt https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssets@master/filters/filters.txt
+          wget -O tmp/convert/uBlockAds.txt https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssetsCDN@main/filters/filters.min.txt
 
       - name: Convert with sing-box
         run: |
