@@ -31,7 +31,7 @@ jobs:
 
       - name: Fetch uBlock Filter Lists
         run: |
-          wget -O tmp/convert/uBlockResourceabuse.txt https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssets@master/filters/resource-abuse.txt
+          wget -O tmp/convert/uBlockResourceabuse.txt https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssetsCDN@main/filters/resource-abuse.txt
 
       - name: Convert with sing-box
         run: |
