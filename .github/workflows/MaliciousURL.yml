@@ -31,7 +31,7 @@ jobs:
 
       - name: Fetch Malicious URL Lists
         run: |
-          wget -O tmp/convert/MaliciousURL.txt https://curbengh.github.io/malware-filter/urlhaus-filter-ag-online.txt
+          wget -O tmp/convert/MaliciousURL.txt https://curbengh.github.io/malware-filter/urlhaus-filter-agh-online.txt
 
       - name: Convert with sing-box
         run: |
